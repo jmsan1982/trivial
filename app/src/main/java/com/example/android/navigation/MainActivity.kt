@@ -19,6 +19,8 @@ package com.example.android.navigation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.android.navigation.databinding.ActivityMainBinding
@@ -33,6 +35,9 @@ class MainActivity : AppCompatActivity() {
         drawerLayout = binding.drawerLayout
         val navController =this.findNavController(R.id.myNavHostFragment)
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+        navController.addOnNavigatedListener { nc: NavController, nd: NavDestination ->
+
+        }
         NavigationUI.setupWithNavController(binding.navView, navController)
 
     }
